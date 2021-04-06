@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>System Recomendation</title>
+    </head>
+    <body>
+		<style>
+		  .outer {
+			border: 1px solid red;
+			margin: 10px 0;
+		  }
+          p.ex1 {
+            margin: 20px;
+          }
+
+		</style>
+		<div class="outer">
+		<h1 style="border: 2px solid Red;background-color:Red;color:White;"><center><font face = "Helvetica" size = "6">Bienvenido al sistema de recomendación para productos Santander</font><br /></center></h1>
+        {% if ncodpers in ids %}
+        <p class="ex1"><font face = "Helvetica" size = "3">El cliente {{ ncodpers }} tiene los siguientes productos:</font><br />
+        <font face = "Helvetica" size = "3"><ul>
+        {% for i in items %}
+        <li>{{ i }}</li>
+		{% endfor %}
+		</ul></font><br /></p>
+        <hr>		
+        <p class="ex1"><font face = "Helvetica" size = "3">Los productos recomendados para este cliente son:</font><br /></p>
+        <p><font face = "Helvetica" size = "3"><ul>
+        {% for r in recomendados %}
+        <li>{{ r }}</li>
+		{% endfor %}
+		</ul></font><br /></p>
+		{% else %}
+        <p class="ex1"><font face = "Helvetica" size = "3">Siendo que eres nuev@ en Santander te recomendamos adquirir los siguientes productos: </font><br /></p>
+        <p><font face = "Helvetica" size = "3"><ul>
+        {% for top in top_recomendados %}
+        <li>{{ top }}</li>
+		{% endfor %}
+		</ul></font><br /></p>
+		{% endif %}
+		<h1 style="border: 2px solid Red;background-color:Red;color:White;"><center><font face = "Helvetica" size = "6">¡Gracias por consultarnos!</font><br /></center></h1>
+		</div>	
+    </body>
+</html>
+
+
